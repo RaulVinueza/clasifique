@@ -8,6 +8,7 @@
   <!-- <script src="bundle.js" defer></script> -->
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"></link>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" ></link>
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js" ></script>
   
   <script defer>
@@ -79,14 +80,16 @@
         showPerspective: true,
         showGrid: true,
         showShadow: false,
-        keepAspectRatio: true,
+        keepAspectRatio: false,
         verticalRatio: 0.5,
         backgroundColor: 'black',
         xMin: 0,
         xMax: 30,
         yMin: 0,
         yMax: 30,
-        valueMax: 3
+        valueMax: 3,
+        verticalRatio: 1.0,
+        showLegend: false
       }
   
       // create a graph3d
@@ -97,9 +100,21 @@
     window.onload = drawVisualization
     </script>
     <style>
+       
+        
         body {
             font-size: 16px;
             padding: 2rem;
+            background-color: black;
+        }
+
+        h1 {
+            font-weight: normal;
+            font-family: 'Varela Round', sans-serif;
+            color: white;
+            font-kerning: normal;
+            font-size: 3rem;
+            letter-spacing: 0.15rem; 
         }
     </style>
 </head>
@@ -107,17 +122,19 @@
   <!-- We will render our React app into a div with an id of 'app' -->
   <!-- We can grab it off the DOM by saing `document.getElementById('app');` -->
   <div id="app"></div>
+  
   <div id="scratch"></div>
-        
+  <h1>Clasifique</h1>  
         <div id="mygraph"></div>   
     </div>
     <div>
-        <h1>X</h1>
+        <h2>x</h2>
         <select class="ui dropdown">
                 <option value="">Feature</option>
                 <option value="1">Male</option>
                 <option value="0">Female</option>
         </select>
+        <h2>f(x)</h2>
         <select class="ui dropdown">
                 <option value="">Transform Feature</option>
                 <option value="1">Male</option>
@@ -125,17 +142,29 @@
         </select>
     </div>
     <div>
-        <h1>Y</h1>
+        <h2>y</h2>
         <select class="ui dropdown">
                 <option value="">Feature</option>
                 <option value="1">Male</option>
                 <option value="0">Female</option>
         </select>
+        <h2>f(y)</h2>
+        <select class="ui dropdown">
+                <option value="">Transform Feature</option>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+        </select>
     </div>
     <div>
-        <h1>Z</h1>
+        <h2>z</h2>
         <select class="ui dropdown">
                 <option value="">Feature</option>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+        </select>
+        <h2>f(z)</h2>
+        <select class="ui dropdown">
+                <option value="">Transform Feature</option>
                 <option value="1">Male</option>
                 <option value="0">Female</option>
         </select>
