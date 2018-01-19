@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Clasifique</title>
+  <!-- Our js bundle will be in 'bundle.js' -->
+  <!-- The 'defer' attribute will ensure that it is run only after the DOM finishes loading -->
+  <!-- <script src="bundle.js" defer></script> -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"></link>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" ></link>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js" ></script>
+  
+  <script defer>
+    var data = null;
+    var graph = null;
+    console.log('executing demo script')
+    function custom(x, y) {
+      return (Math.sin(x/50) * Math.cos(y/50) * 50 + 50);
+    }
+  
+    // Called when the Visualization API is loaded.
+    function drawVisualization() {
+        console.log('drawing visualization')
+      // Create and populate a data table.
+      var data = new vis.DataSet();
+      // create some nice looking data with sin/cos
+      var steps = 25;  // number of datapoints will be steps*steps
+      var axisMax = 314;
+      var axisStep = axisMax / steps;
+      for (var x = 0; x < axisMax; x+=axisStep) {
+        for (var y = 0; y < axisMax; y+=axisStep) {
+          var value = custom(x, y);
+          data.add({
+            x: x,
+            y: y,
+            z: value,
+            style: value
+          });
+        }
+      }
+
+      const altData =[
+          {x: 2, y: 3, z: 0},
+          {x: 5, y: 6, z: 0},
+          {x: 7, y: 4, z: 0},
+          {x: 10 , y: 10, z: 0},
+          {x: 13 , y: 8, z: 0},
+          {x: 28, y: 23, z: 0},
+          {x: 20, y: 26, z: 0},
+          {x: 24, y: 27, z: 0},
+          {x: 27, y: 22, z: 0},
+          {x: 5 , y: 25, z: 0},
+          {x: 3 , y: 21, z: 0},
+          {x: 9 , y: 20, z: 0},
+          {x: 20 , y: 4, z: 0},
+          {x: 28 , y: 2, z: 0},
+          {x: 23 , y: 7, z: 0}
+      ]
+
+      const altData2 = [
+      {x: 2, y: 0, z: 0, style: 0},
+      {x: 4, y: 0, z: 0, style: 0},
+      {x: 3, y: 0, z: 0, style: 0},
+      {x: 14, y: 0, z: 0, style: 0},
+      {x: 15, y: 0, z: 0, style: 0},
+      {x: 29, y: 0, z: 0, style: 0},
+      {x: 27, y: 0, z: 0, style: 0},
+      {x: 21, y: 0, z: 0, style: 1},
+      {x: 20, y: 0, z: 0, style: 1},
+      {x: 8, y: 0, z: 0, style: 1},
+      {x: 9, y: 0, z: 0, style: 1}
+      ]
+  
+      // specify options
+      var options = {
+        width:  '600px',
+        height: '600px',
+        style: 'dot-color',
+        showPerspective: true,
+        showGrid: true,
+        showShadow: false,
+        keepAspectRatio: true,
+        verticalRatio: 0.5,
+        backgroundColor: 'black',
+        xMin: 0,
+        xMax: 30,
+        yMin: 0,
+        yMax: 30,
+        valueMax: 3
+      }
+  
+      // create a graph3d
+      var container = document.getElementById('mygraph');
+      graph3d = new vis.Graph3d(container, altData2, options);
+    }
+
+    window.onload = drawVisualization
+    </script>
+    <style>
+        body {
+            font-size: 16px;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+  <!-- We will render our React app into a div with an id of 'app' -->
+  <!-- We can grab it off the DOM by saing `document.getElementById('app');` -->
+  <div id="app"></div>
+  <div id="scratch"></div>
+        
+        <div id="mygraph"></div>   
+    </div>
+    <div>
+        <h1>X</h1>
+        <select class="ui dropdown">
+                <option value="">Feature</option>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+        </select>
+        <select class="ui dropdown">
+                <option value="">Transform Feature</option>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+        </select>
+    </div>
+    <div>
+        <h1>Y</h1>
+        <select class="ui dropdown">
+                <option value="">Feature</option>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+        </select>
+    </div>
+    <div>
+        <h1>Z</h1>
+        <select class="ui dropdown">
+                <option value="">Feature</option>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+        </select>
+    </div>
+    <button 
+        type=button
+        class="ui button"
+    >
+        RESET
+    </button>
+    <button 
+        type=button
+        class="ui button"
+    >
+        CLASSIFY!
+    </button>
+    
+</body>
+</html>
