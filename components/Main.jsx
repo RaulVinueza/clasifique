@@ -1,45 +1,32 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, NavLink} from 'react-router-dom'
+import options from '../options'
+import {Graph3d} from 'vis'
 
-const options = {
-    width:  '600px',
-    height: '600px',
-    style: 'dot-color',
-    showPerspective: true,
-    showGrid: true,
-    showShadow: false,
-    keepAspectRatio: false,
-    backgroundColor: 'black',
-    xMin: 0,
-    xMax: 30,
-    yMin: 0,
-    yMax: 30,
-    valueMax: 3,
-    verticalRatio: 1.0,
-    showLegend: false
-  }
+let graph3d
 
-const Main = props => {
-    
-    function drawVisualization() {
-
- 
-      const container = document.getElementById('graph')
-      graph3d = new vis.Graph3d(container, altData2, options)
+class Main extends Component {
+    constructor(){
+        super()
     }
 
-    return (<div >
-     {props.children}
-    </div>)
+    componentDidMount(){
+        const container = document.getElementById('graph')
+        graph3d = new Graph3d(container, [{x:0,y:0, z:0, style: 0}], options)
+    }
+
+    render(){
+        return (<div >
+            {this.props.children}
+           </div>)
+    }
+    
 }
 
-const mapState = state => {
-  return {
-  }
-}
+const mapState = state => ({})
 
-const mapDispatch = (dispatch) => {
+const mapDispatch = dispatch => {
   return {
     handleClick () {
       dispatch(logout())

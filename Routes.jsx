@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Route, Switch, Router } from 'react-router-dom'
-import history from './history'
 import store from './store'
+import Main from './components/Main.jsx'
+import Gameplay from './components/Gameplay.jsx'
+import LandingPage from './components/LandingPage.jsx'
+import Ending from './components/ending.jsx'
+import history from './history'
 
 
 class Routes extends Component {
@@ -15,17 +19,16 @@ class Routes extends Component {
           <Route
               component={LandingPage}
               exact
-              path="/"
-            />
+              path="/landing-page"
+            /> 
 
             <Route
               component={Gameplay}
               exact
-              nextProp="hello"
-              path="/gameplay/:level"
+              path="/"
             />
 
-            <Route
+             <Route
               exact
               path="/ending"
               component={Ending}
