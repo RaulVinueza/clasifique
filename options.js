@@ -14,7 +14,10 @@ const options = {
     valueMax: 3,
     verticalRatio: 1.0,
     showLegend: false,
-    cameraPosition: {distance: 3}
+    cameraPosition: {distance: 3},
+    showZAxis: false,
+    xCenter: '50%',
+    yCenter: '50%'
   }
 
   export default options

@@ -27,16 +27,16 @@ const levels = [
     features: ['Allegiance'],
     data: [
         {allegiance: 2, isTarget: 0},
-        {allegiance: 4, isTarget: 0},
+        {allegiance: 1, isTarget: 0},
         {allegiance: 3, isTarget: 0},
         {allegiance: 14, isTarget: 0},
         {allegiance: 15, isTarget: 0},
         {allegiance: 29, isTarget: 0},
-        {allegiance: 27, isTarget: 0},
-        {allegiance: 21, isTarget: 1},
-        {allegiance: 20, isTarget: 1},
-        {allegiance: 8, isTarget: 1},
-        {allegiance: 9, isTarget: 1}
+        {allegiance: 28, isTarget: 0},
+        {allegiance: 25, isTarget: 1},
+        {allegiance: 26, isTarget: 1},
+        {allegiance: 5, isTarget: 1},
+        {allegiance: 6, isTarget: 1}
     ]}
 ]
 

@@ -1,22 +1,47 @@
-import React from 'react'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {changeHActionCreator} from '../reducer'
+import {stateToChart} from '../helperFunctions'
+import {graph3d} from './Main.jsx'
 
-const Zaxis = props => {
+class Xaxis extends Component {
+    render(){
+
+        const container = document.getElementById('graph')
+        stateToChart(this.props.state, graph3d, container)
+
     return (
-        <div>
-        <h2>x</h2>
-        <select className="ui dropdown">
-                <option value="">Feature</option>
-                <option value="1">Male</option>
-                <option value="0">Female</option>
-        </select>
-        <h2>h( f(x), g(y) )</h2>
-        <select className="ui dropdown">
-                <option value="">Transform Feature</option>
-                <option value="1">Male</option>
-                <option value="0">Female</option>
+        <div className="feature-interface">
+       
+        
+        <select 
+            className="classy-select"
+            onChange={evt => {
+                console.log('other click')
+                this.props.handleClick(evt.target.value)
+                
+            }}
+        >
+                <option value="">Make Stuff Float: h(f(x), g(y)</option>
+                <option value="tunnelAlongY">Tunnel Along Y Axis</option>
         </select>
     </div>
     )
+    }
 }
 
-export default Zaxis
+const mapState = state => ({
+   state
+})
+
+const mapDispatch = dispatch => {
+    return {
+      handleClick (keyString) {
+        dispatch(changeHActionCreator(keyString))
+      },
+      
+    }
+  }
+
+export default connect(mapState, mapDispatch)(Xaxis)
+
