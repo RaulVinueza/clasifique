@@ -14,6 +14,7 @@ class Xaxis extends Component {
         <div className="feature-interface">
         <select 
             className="classy-select"
+            id="xFeature"
             onChange={evt => {
                 this.props.handleClick(evt.target.value)
                 
@@ -24,7 +25,7 @@ class Xaxis extends Component {
                 
         </select>
         
-        <select className="classy-select">
+        <select className="classy-select" id="xFunc">
                 <option value="">Modify Feature: f(x)</option>
                 <option value="sadParabola">Sad Parabola</option>
         </select>

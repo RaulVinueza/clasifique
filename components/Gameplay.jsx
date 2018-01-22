@@ -12,8 +12,8 @@ const Gameplay = props => {
         <svg viewBox="0 0 60 60">
   <defs>
     <linearGradient id="rainbow" x1="0" x2="100%" y1="0" y2="0" gradientUnits="userSpaceOnUse" >
-      <stop stop-color="#FFA03A" offset="0%"/>
-      <stop stop-color="#ABFC49" offset="50%"/>
+      <stop stop-color="#3b70e3" offset="0%"/>
+      <stop stop-color="#623be3" offset="50%"/>
     </linearGradient>
   </defs>
     <text fill="url(#rainbow)" text-anchor="middle">
@@ -41,7 +41,7 @@ const Gameplay = props => {
                         type="button"
                         className="classify-button"
                     >
-                        CLASSIFY!
+                        Classify
                     </button>
                 </div>
             </div> 

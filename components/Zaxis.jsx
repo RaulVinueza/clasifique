@@ -14,7 +14,8 @@ class Xaxis extends Component {
         <div className="feature-interface">
        
         
-        <select 
+        <select
+            id="zFunc"
             className="classy-select"
             onChange={evt => {
                 console.log('other click')

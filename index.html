@@ -10,7 +10,9 @@
     <style> 
         body {
             font-size: 16px;
+   
             background-color: black;
+            font-family: 'Varela Round', sans-serif;
         }
 
         h1.title {
@@ -65,15 +67,36 @@
             background: linear-gradient(to left, rgba(255,53,127,1),rgba(59,173,227,1));
             border-radius: 12px;
             border: none;
+            
+        }
+
+        #xFeature{
+            border-color: rgba(59,173,227,1);
+        }
+
+        #xFunc{
+            border-color: rgb(59, 112, 227);
+        }
+
+        #yFeature{
+            border-color: rgb(98, 59, 227);
+        }
+
+        #yFunc{
+            border-color: rgb(188, 59, 227);
+        }
+
+        #zFunc{
+            border-color: rgb(227, 59, 143);
         }
 
         svg {
             max-height: 5rem;
-  margin: 1rem auto;
+  margin: 2rem auto;
   display: block;
 }
 
-.slider-column{
+div.four.wide.column.slider-column{
     pointer-events: all;
 }
 
@@ -86,6 +109,8 @@
   width: 200px;
   margin-top: 10px;
   transform: translate(-50%, -50%);
+  transform: rotate(90deg);
+  pointer-events: all;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
